@@ -14,6 +14,9 @@ import org.openide.nodes.Children.Keys;
 import org.openide.nodes.Node;
 import org.openide.nodes.PropertySupport;
 import org.openide.nodes.Sheet;
+import org.openide.util.Lookup;
+import org.openide.util.LookupEvent;
+import org.openide.util.LookupListener;
 
 /**
  *
@@ -47,9 +50,24 @@ public class NamespaceNode<NM extends Namespace> extends AbstractNode{
     protected static class EntityChildren<NM extends Namespace> extends Keys<NamedItem>{
 
         private NM entity;
+        private Lookup.Result<NamedItem> result;
 
         public EntityChildren(NM entity) {
             this.entity = entity;
+        }
+
+        @Override
+        protected void addNotify() {
+            if (entity instanceof Lookup.Provider){
+                result = ((Lookup.Provider)entity).getLookup().lookupResult(NamedItem.class);
+                result.addLookupListener(new LookupListener(){
+                    @Override
+                    public void resultChanged(LookupEvent ev) {
+                        setKeys(result.allInstances());
+                    }
+                });
+            }
+            setKeys(entity.getChildren());
         }
         
         @Override
