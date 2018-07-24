@@ -6,8 +6,8 @@
 package be.belgiplast.netbeans.utilities.relationships.ui.palette;
 
 import be.belgiplast.netbeans.utilities.relationships.support.AbstractNamespaceSupport;
+import be.belgiplast.utilities.namespaces.Name;
 import be.belgiplast.utilities.namespaces.Namespace;
-import be.belgiplast.utilities.relationships.EntityType;
 import java.awt.Image;
 import javax.swing.Action;
 import org.openide.util.datatransfer.NewType;
@@ -30,7 +30,7 @@ public class DefaultCategoryNamespace extends AbstractNamespaceSupport implement
     }
     
     @Override
-    public String getDisplayName(EntityType type) {
+    public String getDisplayName(Name type) {
         if (provider == null){
             return "";
         }
@@ -38,7 +38,7 @@ public class DefaultCategoryNamespace extends AbstractNamespaceSupport implement
     }
 
     @Override
-    public Image getIcon(EntityType type) {
+    public Image getIcon(Name type) {
         if (provider == null){
             return null;
         }
@@ -46,7 +46,7 @@ public class DefaultCategoryNamespace extends AbstractNamespaceSupport implement
     }
 
     @Override
-    public Action[] getActions(EntityType type) {
+    public Action[] getActions(Name type) {
         if (provider == null){
             return new Action[0];
         }
@@ -54,7 +54,7 @@ public class DefaultCategoryNamespace extends AbstractNamespaceSupport implement
     }
 
     @Override
-    public NewType[] getNewTypes(EntityType type) {
+    public NewType[] getNewTypes(Name type) {
         if (provider == null){
             return new NewType[0];
         }

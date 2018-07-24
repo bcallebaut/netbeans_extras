@@ -90,7 +90,7 @@ public class PaletteSupport {
         }
     }
     
-    private static class CategoryChildren extends Children.Keys<EntityType>{
+    private static class CategoryChildren extends Children.Keys<Name>{
 
         private Namespace namespace;
         private PaletteProvider provider = null;            
@@ -112,7 +112,7 @@ public class PaletteSupport {
         }
 
         @Override
-        protected Node[] createNodes(EntityType key) {
+        protected Node[] createNodes(Name key) {            
             if (provider != null){
                 return new Node[]{new CategoryItemNode(key,provider)};
             }else return new Node[]{new CategoryItemNode(key)};
@@ -121,21 +121,21 @@ public class PaletteSupport {
     }
     
     private static class CategoryItemNode extends AbstractNode{
-        private EntityType entityType;
+        private Name entityType;
         private PaletteProvider provider;
 
-        public CategoryItemNode(EntityType entityType) {
+        public CategoryItemNode(Name entityType) {
             super(Children.LEAF);
             this.entityType = entityType;
             setName(entityType.getName());
             setDisplayName(entityType.getName());
         }
 
-        public EntityType getEntityType() {
+        public Name getType() {
             return entityType;
         }
         
-        public CategoryItemNode(EntityType entityType, PaletteProvider provider) {
+        public CategoryItemNode(Name entityType, PaletteProvider provider) {
             super(Children.LEAF, Lookups.singleton(entityType));
             this.entityType = entityType;            
             setName(entityType.getName());
@@ -198,8 +198,8 @@ public class PaletteSupport {
             Node node = lookup.lookup(Node.class);
             
             try{
-                final EntityType entityType = node.getLookup().lookup(EntityType.class);
-                exTransferable.put(new ExTransferable.Single (new DataFlavor(EntityType.class,"entityType")) {
+                final Name entityType = node.getLookup().lookup(Name.class);                
+                exTransferable.put(new ExTransferable.Single (new DataFlavor(Name.class,"name.type")) {
                 
                 protected Object getData() throws IOException, UnsupportedFlavorException {
                     return entityType;
@@ -208,7 +208,7 @@ public class PaletteSupport {
             });
             }catch (Exception e){
                 Logger.getAnonymousLogger().warning("Node is not a CategoryItemNode. Unable to DnD");
-                exTransferable.put(new ExTransferable.Single (new DataFlavor(EntityType.class,"entityType")) {
+                exTransferable.put(new ExTransferable.Single (new DataFlavor(Name.class,"name.type")) {
 
                     protected Object getData() throws IOException, UnsupportedFlavorException {
                         return null;

@@ -5,7 +5,7 @@
  */
 package be.belgiplast.netbeans.utilities.relationships.ui.palette;
 
-import be.belgiplast.utilities.relationships.EntityType;
+import be.belgiplast.utilities.namespaces.Name;
 import be.belgiplast.utilities.util.Decorator;
 import java.awt.Image;
 import javax.swing.Action;
@@ -16,8 +16,8 @@ import org.openide.util.datatransfer.NewType;
  * @author benoit
  */
 public interface PaletteProvider extends Decorator{
-    String getDisplayName(EntityType type);
-    Image getIcon(EntityType type);
-    Action[] getActions(EntityType type);
-    NewType[] getNewTypes(EntityType type);
+    String getDisplayName(Name type);
+    Image getIcon(Name type);
+    Action[] getActions(Name type);
+    NewType[] getNewTypes(Name type);
 }
