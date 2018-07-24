@@ -95,23 +95,19 @@
                 <package>be.belgiplast.netbeans.utilities.relationships.support</package>
                 <package>be.belgiplast.netbeans.utilities.relationships.ui.nodes</package>
                 <package>be.belgiplast.utilities.namespaces</package>
-                <package>be.belgiplast.utilities.namespaces.support</package>
                 <package>be.belgiplast.utilities.relationships</package>
-                <package>be.belgiplast.utilities.relationships.factories</package>
-                <package>be.belgiplast.utilities.relationships.support</package>
-                <package>be.belgiplast.utilities.util</package>
             </public-packages>
             <class-path-extension>
                 <runtime-relative-path>ext/relationships-0.0.1-SNAPSHOT.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/relationships-0.0.1-SNAPSHOT.jar</binary-origin>
             </class-path-extension>
             <class-path-extension>
-                <runtime-relative-path>ext/util-0.0.1-SNAPSHOT.jar</runtime-relative-path>
-                <binary-origin>release/modules/ext/util-0.0.1-SNAPSHOT.jar</binary-origin>
-            </class-path-extension>
-            <class-path-extension>
                 <runtime-relative-path>ext/relationships-base-1.0-SNAPSHOT.jar</runtime-relative-path>
                 <binary-origin>release/modules/ext/relationships-base-1.0-SNAPSHOT.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/util-0.0.1-SNAPSHOT.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/util-0.0.1-SNAPSHOT.jar</binary-origin>
             </class-path-extension>
         </data>
     </configuration>
